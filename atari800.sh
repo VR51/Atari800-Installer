@@ -13,7 +13,7 @@ clear
 #
 #	Lead Author: Lee Hodson
 #	Donate: https://paypal.me/vr51
-#	Website: https://journalxtra.com/installers/zesarux/
+#	Website: https://journalxtra.com/installers/atari800/
 #	This Release: 3rd Sep 2018
 #	First Written: 3rd Sep 2018
 #	First Release: 3rd Sep 2018
@@ -47,7 +47,7 @@ clear
 #
 #	You will need games and system ROMs to use this emulator enjoyably.
 #	Visit https://journalxtra.com/gaming/download-complete-sets-of-mess-and-mame-roms/ to find some.
-# Atari 8-bit game disk downloader is available at https://journalxtra.com/gaming/classic-atari-games-downloader/
+# 	Atari 8-bit game disk downloader is available at https://journalxtra.com/gaming/classic-atari-games-downloader/
 #
 ###
 

@@ -3,7 +3,7 @@ clear
 # set -x
 ###
 #
-#	Atari800 Installer 1.0.0
+#	Atari800 Installer 1.0.1
 #
 #	General installer & updater.
 #	Compiles software from source and installs binaries and files to their expected locations.
@@ -14,7 +14,7 @@ clear
 #	Lead Author: Lee Hodson
 #	Donate: https://paypal.me/vr51
 #	Website: https://journalxtra.com/installers/atari800/
-#	This Release: 3rd Sep 2018
+#	This Release: 7th Oct 2018
 #	First Written: 3rd Sep 2018
 #	First Release: 3rd Sep 2018
 #
@@ -47,7 +47,7 @@ clear
 #
 #	You will need games and system ROMs to use this emulator enjoyably.
 #	Visit https://journalxtra.com/gaming/download-complete-sets-of-mess-and-mame-roms/ to find some.
-# 	Atari 8-bit game disk downloader is available at https://journalxtra.com/gaming/classic-atari-games-downloader/
+#	Atari 8-bit game disk downloader is available at https://journalxtra.com/gaming/classic-atari-games-downloader/
 #
 ###
 
@@ -62,7 +62,9 @@ clear
 	repoloc='https://github.com/atari800/atari800' # Root location of the program. Equates to Github master URL. We need the repo address only. The rest of the address is added by the installer.
 	srcloc='https://github.com/atari800/atari800.git' # Software source package git address
 	dirsrc="$HOME/src/atari800" # Directory where the source code will be stored locally
-	dirsrcbuild="$HOME/src/atari800/src" # Directory where the source code for the binary will be stored locally. Where will the binary be built?
+	# dirsrcbuild="$HOME/src/atari800/src" # Directory where the source code for the binary will be stored locally. Where will the binary be built? # autoconf.sh moved by atari800 devs.
+	dirsrcbuild="$HOME/src/atari800" # Directory where the source code for the binary will be stored locally. Where will the binary be built?
+	# NOTE: dirsrcbuild lines 323-324 contain /src
 	diricon="$HOME/src/atari800/data" # Directory where the application icon will be located.
 	icon="atari2.svg" # Icon name
 	docs="$HOME/src/atari800/DOC" # Location of program documents.
@@ -317,9 +319,10 @@ function installer_prompt() {
 			./configure
 			make $jobs
 
-			# Compile then install the binary
-			if test -f "$dirsrcbuild/$binary"; then
-				chmod u+x "$dirsrcbuild/$binary"
+			# Install the binary
+			if test -f "$dirsrcbuild/src/$binary"; then
+				cd "$dirsrcbuild/src"
+				chmod u+x "$dirsrcbuild/src/$binary"
 				sudo make install
 				# sudo ln -s "$dirsrcbuild/$binary" "$install/$binary" # We were going to softlink to the executable but the program wouldn't run as a link
 

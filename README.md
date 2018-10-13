@@ -18,8 +18,8 @@ Read the [MAME downloads guide](https://journalxtra.com/gaming/download-complete
 
 ## Reference Guides
 
-Atari800 ships with built-in AltiraOS. This provides Atari BIOSes for the emulated machines and it provides Atari BASIC.
+Atari800 ships with built-in AltirraOS. This provides Atari BIOSes for the emulated machines and it provides Atari BASIC.
 
-Altira is an Atari emulator for Windows. It is different to the Atari800 emulator installed by this script. However, if you are interested, for reference purposes there is an [Altira Hardware Reference Manual](http://www.virtualdub.org/downloads/Altirra%20Hardware%20Reference%20Manual.pdf) and [Altira BASIC Reference Manual](http://www.virtualdub.org/downloads/Altirra%20BASIC%20Reference%20Manual.pdf) available for download.
+Altirra is an Atari emulator for Windows. It is different to the Atari800 emulator installed by this script. However, if you are interested, for reference purposes there is an [Altirra Hardware Reference Manual](http://www.virtualdub.org/downloads/Altirra%20Hardware%20Reference%20Manual.pdf) and [Altirra BASIC Reference Manual](http://www.virtualdub.org/downloads/Altirra%20BASIC%20Reference%20Manual.pdf) available for download.
 
 ![Installer Screenshot](https://github.com/VR51/Atari800-Installer/blob/master/Atari800%20Linux%20Installer%20Screenshot.png)

@@ -3,7 +3,7 @@ clear
 # set -x
 ###
 #
-#	Atari800 Installer 1.0.1
+#	Atari800 Installer 1.0.2
 #
 #	General installer & updater.
 #	Compiles software from source and installs binaries and files to their expected locations.
@@ -14,7 +14,7 @@ clear
 #	Lead Author: Lee Hodson
 #	Donate: https://paypal.me/vr51
 #	Website: https://journalxtra.com/installers/atari800/
-#	This Release: 7th Oct 2018
+#	This Release: 5th June 2020
 #	First Written: 3rd Sep 2018
 #	First Release: 3rd Sep 2018
 #
@@ -64,7 +64,6 @@ clear
 	dirsrc="$HOME/src/atari800" # Directory where the source code will be stored locally
 	# dirsrcbuild="$HOME/src/atari800/src" # Directory where the source code for the binary will be stored locally. Where will the binary be built? # autoconf.sh moved by atari800 devs.
 	dirsrcbuild="$HOME/src/atari800" # Directory where the source code for the binary will be stored locally. Where will the binary be built?
-	# NOTE: dirsrcbuild lines 323-324 contain /src
 	diricon="$HOME/src/atari800/data" # Directory where the application icon will be located.
 	icon="atari2.svg" # Icon name
 	docs="$HOME/src/atari800/DOC" # Location of program documents.
@@ -75,7 +74,7 @@ clear
 	type='Application' # 
 	cats='Game;Games' # Application launcher categories
 
-# install='/usr/games' # Binary installation path. Where should the compiled binary be installed to? Exact path. # Not required for this installer.
+# install='/usr/local/bin' # Binary installation path. Where should the compiled binary be installed to? Exact path. # Not required for this installer.
 
 	user=$(whoami) # Current User
 	group=$(id -g -n $user) # Current user's primary group
@@ -89,13 +88,13 @@ clear
 	declare -a mode # Used for notices
 	declare -a essentialpackages # Packages to install to help the build process
 	
-	conf[0]=0 # Essentials # Install build essential software. 0 = Not done, 1 = Done
+	conf[0]=1 # Essentials # Install build essential software. 0 = Not done, 1 = Done
 	conf[1]=2 # Clean Stale # Do no cleaning or run make clean or delete source files? 0/1/2. 0 = No Clean, 1 = Soft Clean, 2 = Hard Clean.
 	conf[2]=0 # Parallel jobs to run during build # Number of CPU cores + 1 is safe. Can be as high as 2*CPU cores. More jobs can shorten build time but not always and risks system stability. 0 = Auto.
 	conf[3]=$(nproc) # Number of CPU cores the computer has.
 	conf[4]=$($binary -v) # Installed package version
 	# conf[4]=$($binary -v | grep "$package Version:") # Installed Version grep method 
-	conf[5]=$(curl -v --silent "$repoloc/commit/master" --stderr - | grep '<relative-time datetime' | sed -E 's#<relative-time datetime="(.+)">.+$#\1#g' | tr -d '[:space:]' | tr '[:alpha:]' ' ')
+	conf[5]=$(curl -v --silent "$repoloc/commit/master" --stderr - | grep '<relative-time datetime' | sed -E 's#.+">(.+)<.+#\1#')
 	conf[6]=$(if test -f "$configloc" ; then echo "1"; fi)
 
 	essentialpackages=( build-essential gcc g++ libqtwebkit-dev libsdl2* sdllib libqt5* qt5* autoconf zlib libpng curl )

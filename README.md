@@ -1,4 +1,9 @@
+Use [GitBuilder](https://github.com/VR51/GitBuilder) instead.
+
+Atari800 Installer still works in 2025 but [GitBuilder](https://github.com/VR51/GitBuilder) is the future of this script and the replacement for my other individual GitHub repository downloaders and builders.
+
 # Atari800 Installer
+
 Use this script to download and build the latest source for Atari800, or to update Atari800 to the latest version.
 
 You only need file atari800.sh
